@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inflation | The Investment Club</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <a class="logo" href="../index.html">The Investment Club</a>
+        <a class="header-note" href="../index.html">← Back to all lessons</a>
+    </header>
+
+    <main class="lesson-page">
+
+        <section class="lesson-hero">
+            <p class="eyebrow">WEEK 02 · INVESTING FUNDAMENTALS</p>
+            <h1>Inflation and purchasing power.</h1>
+            <p class="hero-description">
+                Why having more money doesn't always mean being richer.
+            </p>
+            <p class="reading-time">15–20 MIN READ</p>
+        </section>
+
+        <article class="lesson-article">
+
+            <h2>What is inflation?</h2>
+
+            <p>
+                <strong>Inflation</strong> is the general rise in prices
+                over time. When prices go up, each euro buys a little
+                less than it did before.
+            </p>
+
+            <p>
+                A few percent a year sounds small. But, just like
+                compound growth in Week 1, inflation compounds.
+                Each year's price rise builds on the last one.
+            </p>
+
+            <div class="lesson-highlight">
+                Inflation doesn't take euros out of your wallet.
+                It makes each euro worth less.
+            </div>
+
+            <h2>A cup of coffee</h2>
+
+            <p>
+                Imagine your coffee costs €3.00 today, and prices
+                rise by 3% every year.
+            </p>
+
+            <div class="example-box">
+                <div>
+                    <span class="example-label">IN 10 YEARS</span>
+                    <strong>€4.03</strong>
+                    <p>The same coffee costs about a third more.</p>
+                </div>
+                <div>
+                    <span class="example-label">IN 20 YEARS</span>
+                    <strong>€5.42</strong>
+                    <p>Almost double today's price.</p>
+                </div>
+            </div>
+
+            <p>
+                The same happens to your weekly groceries. A €100
+                basket today would cost about €134 in ten years at
+                3% inflation. Nothing about the groceries changed,
+                only their price.
+            </p>
+
+            <h2>Nominal value vs. purchasing power</h2>
+
+            <p>
+                <strong>Nominal value</strong> is the number of euros
+                you have. If €10,000 sits in a drawer for ten years,
+                it is still €10,000.
+            </p>
+
+            <p>
+                <strong>Purchasing power</strong> is what that money
+                can actually buy. After ten years of 3% inflation,
+                your €10,000 buys only what about €7,441 buys today.
+                The number stayed the same, but you became poorer.
+            </p>
+
+            <div class="lesson-highlight">
+                What matters is not how many euros you have,
+                but what those euros can buy.
+            </div>
+
+            <p>
+                This is why investors talk about <strong>real
+                returns</strong>. If your savings earn 2% while
+                inflation is 3%, your balance grows, but your
+                purchasing power still shrinks.
+            </p>
+
+            <section class="calculator">
+                <p class="eyebrow">PLAY WITH THE NUMBERS</p>
+                <h2>How much will your money really be worth?</h2>
+                <p class="calculator-intro">
+                    Change the assumptions and see how inflation
+                    affects what your money can buy.
+                </p>
+
+                <div class="calculator-controls">
+                    <div class="control">
+                        <label for="amount">Starting amount</label>
+                        <div class="input-with-unit">
+                            <span>€</span>
+                            <input id="amount" type="number" min="100" max="1000000"
+                                step="500" value="10000">
+                        </div>
+                    </div>
+
+                    <div class="control">
+                        <label for="rate">
+                            Annual inflation rate <strong id="rate-value">3.0%</strong>
+                        </label>
+                        <input id="rate" type="range" min="0" max="15"
+                            step="0.5" value="3">
+                    </div>
+
+                    <div class="control">
+                        <label for="years">
+                            Number of years <strong id="years-value">10 years</strong>
+                        </label>
+                        <input id="years" type="range" min="1" max="50"
+                            step="1" value="10">
+                    </div>
+                </div>
+
+                <div class="inflation-results">
+                    <div class="comparison-card">
+                        <span>FUTURE COST OF TODAY'S BASKET</span>
+                        <strong id="future-cost">€13,439</strong>
+                        <p>What the same goods will cost in the future.</p>
+                    </div>
+
+                    <div class="comparison-card power-card">
+                        <span>FUTURE PURCHASING POWER</span>
+                        <strong id="future-power">€7,441</strong>
+                        <p>What your money will buy, in today's euros.</p>
+                    </div>
+
+                    <div class="comparison-card lost-card">
+                        <span>PURCHASING POWER LOST</span>
+                        <strong id="power-lost">25.6%</strong>
+                        <p>Share of buying power that disappears.</p>
+                    </div>
+                </div>
+
+                <div class="chart-legend">
+                    <span><i class="legend-seven"></i> Nominal value (euros you hold)</span>
+                    <span><i class="legend-four"></i> Purchasing power (today's euros)</span>
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="inflation-chart"
+                        aria-label="Chart of purchasing power declining over time"></canvas>
+                    <div class="chart-tooltip" id="chart-tooltip" hidden></div>
+                </div>
+
+                <p class="chart-note">
+                    Illustrative calculation only. It assumes the same
+                    inflation rate every year. In reality, inflation
+                    changes from year to year and can be higher or lower.
+                </p>
+            </section>
+
+            <h2>Why does this matter for investors?</h2>
+
+            <p>
+                Keeping money safe in cash feels risk-free. But over
+                long periods, inflation quietly reduces what that cash
+                can buy.
+            </p>
+
+            <p>
+                When you compare savings accounts or investments,
+                ask whether the return is likely to beat inflation.
+                Only the part above inflation makes you richer.
+            </p>
+
+            <h2>Three key takeaways</h2>
+
+            <ul>
+                <li>Inflation means prices rise, so each euro buys less over time.</li>
+                <li>Nominal value is the euros you have; purchasing power is what they can buy.</li>
+                <li>A savings or investment return only grows your wealth if it beats inflation.</li>
+            </ul>
+
+            <p class="disclaimer">
+                All examples are hypothetical illustrations, not forecasts.
+                They assume a constant annual inflation rate.
+            </p>
+
+            <h2>Want to learn more?</h2>
+
+            <ul>
+                <li>
+                    <a href="https://www.ecb.europa.eu/ecb-and-you/explainers/tell-me-more/html/what_is_inflation.en.html"
+                       target="_blank" rel="noopener">What is inflation?</a>,
+                    a short, plain-language explainer from the European Central Bank.
+                </li>
+                <li>
+                    <a href="https://www.ecb.europa.eu/ecb/educational/hicp/html/index.en.html"
+                       target="_blank" rel="noopener">How inflation is measured</a>,
+                    the ECB's guide to the "basket of goods" used to track prices in the euro area.
+                </li>
+            </ul>
+
+            <div class="reflection">
+                <p class="eyebrow">FRIDAY QUIZ</p>
+                <h2>Three questions to think about.</h2>
+                <ol class="quiz-list">
+                    <li>
+                        If inflation is 3% a year, will €10,000 kept in cash
+                        buy more or less in ten years? Why?
+                    </li>
+                    <li>
+                        What is the difference between nominal value and
+                        purchasing power?
+                    </li>
+                    <li>
+                        Your savings account pays 2% interest and inflation
+                        is 3%. Are you getting richer or poorer in real terms?
+                    </li>
+                </ol>
+            </div>
+
+        </article>
+
+    </main>
+
+    <footer>
+        <p>The Investment Club · Learn together, grow together.</p>
+    </footer>
+
+<script src="week-02-inflation.js"></script>
+</body>
+</html>

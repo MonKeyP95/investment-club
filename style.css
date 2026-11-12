@@ -583,3 +583,37 @@ footer {
     outline: 2px solid var(--accent);
     outline-offset: 3px;
 }
+
+/* WEEK 2: INFLATION */
+
+.inflation-results {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 25px 0;
+}
+
+.inflation-results .comparison-card strong {
+    color: var(--text);
+}
+
+.inflation-results .power-card strong,
+.inflation-results .lost-card strong {
+    color: #c18a45;
+}
+
+.quiz-list {
+    padding-left: 25px;
+}
+
+@media (max-width: 600px) {
+    .inflation-results {
+        grid-template-columns: 1fr;
+    }
+}
+
+.lesson-article a {
+    color: var(--accent);
+    font-weight: 600;
+    text-underline-offset: 3px;
+}
