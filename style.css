@@ -665,3 +665,35 @@ footer {
 .legend-start {
     background: #b5bdb3;
 }
+
+/* LESSON PARTS: LEARN, UNDERSTAND, EXPERIMENT, THINK */
+
+.lesson-article .part-label {
+    margin: 80px 0 0;
+    padding-top: 22px;
+    border-top: 1px solid var(--border);
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    line-height: 1.4;
+}
+
+.lesson-article .part-label:first-child {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 0;
+}
+
+.lesson-article .part-label + h2 {
+    margin-top: 10px;
+}
+
+.part-label + .reflection,
+.part-label + .calculator {
+    margin-top: 20px;
+}
+
+.reflection + .disclaimer {
+    margin-top: 35px;
+}
