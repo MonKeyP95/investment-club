@@ -414,6 +414,36 @@ footer {
     display: block;
 }
 
+.chart-tooltip {
+    position: absolute;
+    top: 20px;
+    pointer-events: none;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    white-space: nowrap;
+    box-shadow: 0 6px 20px #20282014;
+}
+
+.chart-tooltip[hidden] {
+    display: none;
+}
+
+.chart-tooltip span {
+    display: block;
+}
+
+.tip-four {
+    color: #c18a45;
+}
+
+.tip-seven {
+    color: #496b52;
+}
+
 .chart-note {
     font-size: 11px !important;
     color: var(--muted) !important;

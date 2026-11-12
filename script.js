@@ -13,6 +13,12 @@ const growthSeven = document.getElementById("growth-seven");
 
 const canvas = document.getElementById("growth-chart");
 const ctx = canvas.getContext("2d");
+const tooltip = document.getElementById("chart-tooltip");
+
+const padding = { top: 20, right: 15, bottom: 35, left: 70 };
+
+let chartData = null;
+let hoverYear = null;
 
 const chartButtons = document.querySelectorAll(".chart-mode");
 
@@ -34,7 +40,12 @@ function calculateGrowth(initial, rate, years) {
     return values;
 }
 
-function drawChart(valuesFour, valuesSeven, initial) {
+function formatChartValue(value) {
+    return chartMode === "value" ? euro.format(value) : `+${value.toFixed(1)}%`;
+}
+
+function drawChart() {
+    let { valuesFour, valuesSeven, initial } = chartData;
     const width = canvas.clientWidth;
     const height = canvas.clientHeight;
     const pixelRatio = window.devicePixelRatio || 1;
@@ -56,7 +67,6 @@ function drawChart(valuesFour, valuesSeven, initial) {
         );
     }
 
-    const padding = { top: 20, right: 15, bottom: 35, left: 70 };
     const chartWidth = width - padding.left - padding.right;
     const chartHeight = height - padding.top - padding.bottom;
 
@@ -122,17 +132,63 @@ function drawChart(valuesFour, valuesSeven, initial) {
     drawLine(valuesFour, "#c18a45");
     drawLine(valuesSeven, "#496b52");
 
-    // Horizontal axis labels
+    // Horizontal axis labels: every 5 years (10 when crowded) plus the final year
     ctx.fillStyle = "#777d74";
     ctx.textAlign = "center";
     ctx.textBaseline = "top";
 
-    ctx.fillText("Year 0", padding.left, height - 25);
-    ctx.fillText(
-        `Year ${valuesFour.length - 1}`,
-        width - padding.right,
-        height - 25
-    );
+    const years = valuesFour.length - 1;
+    const step = (chartWidth / years) * 5 < 30 ? 10 : 5;
+    const xForYear = year => padding.left + (year / years) * chartWidth;
+
+    for (let year = 0; year < years; year += step) {
+        if (year === 0 || years - year >= step / 2) {
+            ctx.fillText(String(year), xForYear(year), height - 25);
+        }
+    }
+    ctx.fillText(String(years), xForYear(years), height - 25);
+
+    if (hoverYear === null) {
+        tooltip.hidden = true;
+        return;
+    }
+
+    // Hover marker: guide line, a dot on each line and the tooltip
+    const x = xForYear(hoverYear);
+    const yForValue = value => padding.top + chartHeight - (value / maxValue) * chartHeight;
+
+    ctx.strokeStyle = "#c9c8bf";
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(x, padding.top);
+    ctx.lineTo(x, padding.top + chartHeight);
+    ctx.stroke();
+
+    [[valuesFour, "#c18a45"], [valuesSeven, "#496b52"]].forEach(([values, color]) => {
+        ctx.fillStyle = color;
+        ctx.beginPath();
+        ctx.arc(x, yForValue(values[hoverYear]), 5, 0, Math.PI * 2);
+        ctx.fill();
+    });
+
+    tooltip.innerHTML = `
+        <strong>Year ${hoverYear}</strong>
+        <span class="tip-four">4%: ${formatChartValue(valuesFour[hoverYear])}</span>
+        <span class="tip-seven">7%: ${formatChartValue(valuesSeven[hoverYear])}</span>`;
+    tooltip.style.left = `${x}px`;
+    tooltip.style.transform = x > width / 2
+        ? "translateX(calc(-100% - 12px))"
+        : "translateX(12px)";
+    tooltip.hidden = false;
+}
+
+function updateHover(event) {
+    const years = chartData.valuesFour.length - 1;
+    const chartWidth = canvas.clientWidth - padding.left - padding.right;
+    const position = (event.offsetX - padding.left) / chartWidth;
+
+    hoverYear = Math.min(years, Math.max(0, Math.round(position * years)));
+    drawChart();
 }
 
 function updateCalculator() {
@@ -160,7 +216,9 @@ function updateCalculator() {
     growthFour.textContent = `+${((totalFour / initial - 1) * 100).toFixed(1)}% growth`;
     growthSeven.textContent = `+${((totalSeven / initial - 1) * 100).toFixed(1)}% growth`;
 
-    drawChart(valuesFour, valuesSeven, initial);
+    chartData = { valuesFour, valuesSeven, initial };
+    hoverYear = null;
+    drawChart();
 }
 
 // Update when inputs change
@@ -180,6 +238,14 @@ chartButtons.forEach(button => {
 
         updateCalculator();
     });
+});
+
+// Show year values while hovering (or tapping) the chart
+canvas.addEventListener("pointermove", updateHover);
+canvas.addEventListener("pointerdown", updateHover);
+canvas.addEventListener("pointerleave", () => {
+    hoverYear = null;
+    drawChart();
 });
 
 window.addEventListener("resize", updateCalculator);
