@@ -1,0 +1,555 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+:root {
+    --background: #f7f6f2;
+    --surface: #ffffff;
+    --text: #202820;
+    --muted: #777d74;
+    --accent: #496b52;
+    --border: #e8e7df;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: var(--background);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    line-height: 1.6;
+}
+
+.site-header {
+    max-width: 1100px;
+    margin: auto;
+    padding: 28px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+}
+
+.logo {
+    color: var(--text);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.header-note,
+.week-count {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+main {
+    max-width: 900px;
+    margin: auto;
+    padding: 0 24px;
+}
+
+.hero {
+    padding: 100px 0 90px;
+    max-width: 700px;
+}
+
+.eyebrow {
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+}
+
+h1 {
+    font-size: clamp(42px, 7vw, 68px);
+    line-height: 1.12;
+    letter-spacing: -1.5px;
+}
+
+.hero-description {
+    color: var(--muted);
+    font-size: 17px;
+    max-width: 490px;
+    margin-top: 24px;
+}
+
+.weeks {
+    padding-bottom: 100px;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: 28px;
+}
+
+h2 {
+    font-size: 32px;
+}
+
+.lesson-card {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    padding: 30px;
+    margin-bottom: 14px;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+.featured {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.featured:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px #20282010;
+}
+
+.upcoming {
+    background: transparent;
+    border: 1px solid var(--border);
+    opacity: 0.75;
+}
+
+.lesson-number {
+    font-size: 34px;
+    font-family: 'Playfair Display', serif;
+    color: #b5bdb3;
+}
+
+.lesson-content {
+    flex: 1;
+}
+
+.lesson-status,
+.lesson-meta {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--accent);
+}
+
+.lesson-content h3 {
+    font-size: 25px;
+    margin: 7px 0;
+}
+
+.lesson-content p {
+    font-size: 14px;
+    color: var(--muted);
+}
+
+.lesson-meta {
+    display: inline-block;
+    margin-top: 15px;
+    color: var(--muted);
+}
+
+.arrow {
+    font-size: 25px;
+    color: var(--accent);
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 12px;
+}
+
+@media (max-width: 600px) {
+    .site-header {
+        padding: 20px;
+    }
+
+    .header-note {
+        display: none;
+    }
+
+    .hero {
+        padding: 70px 0;
+    }
+
+    .lesson-card {
+        padding: 22px 18px;
+        gap: 15px;
+    }
+
+    .lesson-content h3 {
+        font-size: 21px;
+    }
+
+    .week-count {
+        display: none;
+    }
+}
+
+/* LESSON PAGE */
+
+.lesson-page {
+    max-width: 850px;
+}
+
+.lesson-hero {
+    padding: 85px 0 55px;
+    border-bottom: 1px solid var(--border);
+}
+
+.lesson-hero h1 {
+    max-width: 700px;
+}
+
+.reading-time {
+    margin-top: 25px;
+    color: var(--muted);
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+}
+
+.lesson-article {
+    max-width: 680px;
+    margin: 55px auto 100px;
+}
+
+.lesson-article h2 {
+    font-size: 29px;
+    margin: 55px 0 18px;
+}
+
+.lesson-article p,
+.lesson-article li {
+    color: #555e55;
+    font-size: 16px;
+    line-height: 1.9;
+    margin-bottom: 20px;
+}
+
+.lesson-article ul {
+    padding-left: 25px;
+    margin-bottom: 35px;
+}
+
+.lesson-highlight {
+    background: #eaf0e8;
+    border-left: 4px solid var(--accent);
+    padding: 25px;
+    margin: 35px 0;
+    font-family: 'Playfair Display', serif;
+    font-size: 23px;
+    line-height: 1.5;
+}
+
+.example-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.example-box > div {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 25px;
+}
+
+.example-box strong,
+.example-label {
+    display: block;
+}
+
+.example-label {
+    color: var(--muted);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+}
+
+.disclaimer {
+    font-size: 12px !important;
+    color: var(--muted) !important;
+}
+
+.reflection {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 35px;
+    margin-top: 65px;
+}
+
+.reflection h2 {
+    margin-top: 0;
+}
+
+@media (max-width: 600px) {
+    .lesson-hero {
+        padding: 60px 0 40px;
+    }
+
+    .example-box {
+        grid-template-columns: 1fr;
+    }
+
+    .lesson-article {
+        margin-top: 35px;
+    }
+}
+
+/* INTERACTIVE CALCULATOR */
+
+.calculator {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 30px;
+    margin: 45px 0;
+}
+
+.calculator h2 {
+    margin: 0 0 12px;
+}
+
+.calculator-intro {
+    font-size: 14px !important;
+}
+
+.calculator-controls {
+    display: grid;
+    gap: 25px;
+    margin: 30px 0;
+}
+
+.control label {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.control label strong {
+    color: var(--accent);
+}
+
+.input-with-unit {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0 12px;
+}
+
+.input-with-unit span {
+    color: var(--muted);
+}
+
+.input-with-unit input {
+    border: 0;
+    outline: none;
+    width: 100%;
+    padding: 12px;
+    font: inherit;
+}
+
+.control input[type="range"] {
+    width: 100%;
+    accent-color: var(--accent);
+    cursor: pointer;
+}
+
+.result {
+    background: #eaf0e8;
+    padding: 25px;
+    border-radius: 8px;
+    margin: 30px 0;
+}
+
+.result span {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    color: var(--muted);
+}
+
+.result strong {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 6vw, 48px);
+    color: var(--accent);
+    margin: 8px 0;
+}
+
+.result p {
+    margin: 0;
+    font-size: 13px;
+}
+
+.chart-container {
+    width: 100%;
+    height: 280px;
+    position: relative;
+}
+
+.chart-container canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.chart-note {
+    font-size: 11px !important;
+    color: var(--muted) !important;
+    margin-top: 15px;
+}
+
+@media (max-width: 600px) {
+    .calculator {
+        padding: 20px;
+    }
+
+    .chart-container {
+        height: 220px;
+    }
+}
+
+/* TWO INVESTMENT COMPARISON */
+
+.comparison-results {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 25px 0;
+}
+
+.comparison-card {
+    padding: 20px;
+    border-radius: 8px;
+    background: #f5f5f0;
+    min-width: 0;
+}
+
+.comparison-card span {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--muted);
+}
+
+.comparison-card strong {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(20px, 4vw, 30px);
+    margin: 10px 0 5px;
+    overflow-wrap: anywhere;
+}
+
+.comparison-card p {
+    font-size: 12px !important;
+    margin: 0;
+}
+
+.growth-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.rate-four strong {
+    color: #c18a45;
+}
+
+.rate-seven strong {
+    color: #496b52;
+}
+
+.chart-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 25px 0 10px;
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.chart-legend span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.chart-legend i {
+    display: inline-block;
+    width: 18px;
+    height: 3px;
+    border-radius: 3px;
+}
+
+.legend-four {
+    background: #c18a45;
+}
+
+.legend-seven {
+    background: #496b52;
+}
+
+@media (max-width: 450px) {
+    .comparison-results {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* CHART DISPLAY SWITCH */
+
+.chart-switch {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 30px 0 15px;
+}
+
+.chart-mode {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 10px 15px;
+    background: transparent;
+    color: var(--muted);
+    font: inherit;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.chart-mode:hover {
+    border-color: var(--accent);
+}
+
+.chart-mode.active {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+}
+
+.chart-mode:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
