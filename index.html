@@ -1,81 +1,41 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A friendly investment learning club.">
     <title>The Investment Club</title>
+    <meta name="description" content="A friendly weekly learning club. Understand investing, one idea at a time.">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="The Investment Club">
+    <meta property="og:title" content="The Investment Club">
+    <meta property="og:description" content="A friendly weekly learning club. Understand investing, one idea at a time.">
+    <meta property="og:url" content="https://monkeyp95.github.io/investment-club/">
+    <meta property="og:image" content="https://monkeyp95.github.io/investment-club/images/investment-club-share.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="The Investment Club logo">
+
     <link rel="stylesheet" href="style.css">
+    <script src="site-config.js"></script>
+    <script>location.replace(lessons[currentWeek]);</script>
 </head>
 
 <body>
 
     <header class="site-header">
-        <a class="logo" href="index.html">The Investment Club</a>
-        <span class="header-note">Learn together. Invest smarter.</span>
+        <a class="logo" href="lessons.html">The Investment Club</a>
     </header>
 
     <main>
         <section class="hero">
             <p class="eyebrow">A WEEKLY LEARNING CLUB</p>
-            <h1>Understand investing.<br>One idea at a time.</h1>
+            <h1>Opening this week's lesson...</h1>
             <p class="hero-description">
-                A relaxed space to explore money, markets and investing.
-                No finance degree required. Just curiosity.
+                If nothing happens, <a href="lessons.html">see all lessons</a>.
             </p>
         </section>
-
-        <section class="weeks">
-            <div class="section-heading">
-                <div>
-                    <p class="eyebrow">YOUR LEARNING JOURNEY</p>
-                    <h2>Start exploring</h2>
-                </div>
-                <span class="week-count">3 weeks · 3 ideas</span>
-            </div>
-
-            <a class="lesson-card featured"
-               href="lessons/week-01-compound-growth.html">
-                <div class="lesson-number">01</div>
-                <div class="lesson-content">
-                    <span class="lesson-status">START HERE</span>
-                    <h3>The power of compound growth</h3>
-                    <p>Discover why time can be one of an investor's greatest advantages.</p>
-                    <span class="lesson-meta">15–20 MIN · BEGINNER FRIENDLY</span>
-                </div>
-                <span class="arrow">↗</span>
-            </a>
-
-            <a class="lesson-card featured"
-               href="lessons/week-02-inflation.html">
-                <div class="lesson-number">02</div>
-                <div class="lesson-content">
-                    <span class="lesson-status">WEEK TWO</span>
-                    <h3>Inflation and purchasing power</h3>
-                    <p>Why having more money doesn't always mean being richer.</p>
-                    <span class="lesson-meta">15–20 MIN · BEGINNER FRIENDLY</span>
-                </div>
-                <span class="arrow">↗</span>
-            </a>
-
-            <a class="lesson-card featured"
-               href="lessons/week-03-investment-risk.html">
-                <div class="lesson-number">03</div>
-                <div class="lesson-content">
-                    <span class="lesson-status">NEW THIS WEEK</span>
-                    <h3>Understanding investment risk</h3>
-                    <p>Why risk is more than just watching prices go up and down.</p>
-                    <span class="lesson-meta">15–20 MIN · BEGINNER FRIENDLY</span>
-                </div>
-                <span class="arrow">↗</span>
-            </a>
-        </section>
     </main>
-
-    <footer>
-        <p>The Investment Club · Learn together, grow together.</p>
-    </footer>
 
 </body>
 </html>

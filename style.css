@@ -697,3 +697,10 @@ footer {
 .reflection + .disclaimer {
     margin-top: 35px;
 }
+
+/* Keep the lessons overview link visible on phones */
+@media (max-width: 600px) {
+    a.header-note {
+        display: inline;
+    }
+}
