@@ -602,10 +602,6 @@ footer {
     color: #c18a45;
 }
 
-.quiz-list {
-    padding-left: 25px;
-}
-
 @media (max-width: 600px) {
     .inflation-results {
         grid-template-columns: 1fr;
@@ -616,4 +612,56 @@ footer {
     color: var(--accent);
     font-weight: 600;
     text-underline-offset: 3px;
+}
+
+/* WEEK 3: INVESTMENT RISK */
+
+.simulation-run {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.simulation-run input {
+    width: 80px;
+    padding: 9px 10px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font: inherit;
+}
+
+.sim-button {
+    border: 1px solid var(--accent);
+    border-radius: 6px;
+    padding: 10px 16px;
+    background: var(--accent);
+    color: white;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.sim-button:hover {
+    background: #3c5a44;
+}
+
+.sim-button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+
+.journey-summary {
+    background: #eaf0e8;
+    border-radius: 8px;
+    padding: 18px 20px;
+    font-size: 14px !important;
+    line-height: 1.7 !important;
+}
+
+.legend-start {
+    background: #b5bdb3;
 }

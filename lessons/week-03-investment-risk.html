@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investment Risk | The Investment Club</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <a class="logo" href="../index.html">The Investment Club</a>
+        <a class="header-note" href="../index.html">← Back to all lessons</a>
+    </header>
+
+    <main class="lesson-page">
+
+        <section class="lesson-hero">
+            <p class="eyebrow">WEEK 03 · INVESTING FUNDAMENTALS</p>
+            <h1>Understanding investment risk.</h1>
+            <p class="hero-description">
+                Why risk is more than just watching prices go up and down.
+            </p>
+            <p class="reading-time">15–20 MIN READ</p>
+        </section>
+
+        <article class="lesson-article">
+
+            <h2>What is investment risk?</h2>
+
+            <p>
+                When you invest, you don't know exactly what will happen.
+                <strong>Investment risk</strong> is that uncertainty: the
+                chance that things turn out differently from what you hoped.
+            </p>
+
+            <p>
+                In practice, risk usually means two things. You might
+                <strong>lose money</strong>. Or you might <strong>fail to
+                reach a goal</strong>, such as having enough saved for a
+                home or for retirement by a certain date.
+            </p>
+
+            <div class="lesson-highlight">
+                Risk is not just about prices moving.
+                It is about not knowing where you will end up.
+            </div>
+
+            <h2>Risk vs. volatility</h2>
+
+            <p>
+                <strong>Volatility</strong> measures how much an investment's
+                price moves up and down. A savings account barely moves.
+                Shares in companies can rise or fall a lot within a single year.
+            </p>
+
+            <p>
+                Volatility is easy to see, so people often treat it as the
+                same thing as risk. But risk is broader. A company can go
+                bankrupt, you may need your money at a bad moment, or you
+                may panic and sell after a fall.
+            </p>
+
+            <div class="example-box">
+                <div>
+                    <span class="example-label">TEMPORARY DECLINE</span>
+                    <strong>−20%, then recovery</strong>
+                    <p>Your €10,000 drops to €8,000, but you hold on and it later climbs back.</p>
+                </div>
+                <div>
+                    <span class="example-label">PERMANENT LOSS</span>
+                    <strong>−20%, for good</strong>
+                    <p>You sell at €8,000, or the company fails. The money does not come back.</p>
+                </div>
+            </div>
+
+            <p>
+                A fall on paper only becomes a permanent loss if you sell
+                at the low point, or if the investment never recovers.
+                That is why the same price drop can be a bump in the road
+                for one investor and a real loss for another.
+            </p>
+
+            <p>
+                Even investments that have grown well over the long run
+                have gone through difficult periods, sometimes falling by
+                a third or more before recovering.
+            </p>
+
+            <section class="calculator">
+                <p class="eyebrow">THE INVESTMENT EXPERIMENT</p>
+                <h2>Two different investment journeys</h2>
+                <p class="calculator-intro">
+                    Investments A and B are built to grow by the same 5% a
+                    year in a typical scenario. The only difference is how
+                    much they swing up and down along the way. Change the
+                    volatility and see how different their journeys can be.
+                </p>
+
+                <div class="calculator-controls">
+                    <div class="control">
+                        <label for="amount">Initial investment</label>
+                        <div class="input-with-unit">
+                            <span>€</span>
+                            <input id="amount" type="number" min="100" max="1000000"
+                                step="500" value="10000">
+                        </div>
+                    </div>
+
+                    <div class="control">
+                        <label for="years">
+                            Investment period <strong id="years-value">20 years</strong>
+                        </label>
+                        <input id="years" type="range" min="1" max="40"
+                            step="1" value="20">
+                    </div>
+
+                    <div class="control">
+                        <label for="volatility-a">
+                            Investment A volatility <strong id="volatility-a-value">5%</strong>
+                        </label>
+                        <input id="volatility-a" type="range" min="0" max="40"
+                            step="1" value="5">
+                    </div>
+
+                    <div class="control">
+                        <label for="volatility-b">
+                            Investment B volatility <strong id="volatility-b-value">20%</strong>
+                        </label>
+                        <input id="volatility-b" type="range" min="0" max="40"
+                            step="1" value="20">
+                    </div>
+                </div>
+
+                <div class="simulation-run">
+                    <button class="sim-button" id="new-simulation" type="button">
+                        Run a new simulation
+                    </button>
+                    <label for="seed">Simulation number</label>
+                    <input id="seed" type="number" min="1" step="1" value="47">
+                </div>
+
+                <div class="comparison-results">
+                    <div class="comparison-card rate-seven">
+                        <span>INVESTMENT A · LOWER VOLATILITY</span>
+                        <strong id="final-a">€0</strong>
+                        <p id="drawdown-a">Biggest fall from a peak: 0%</p>
+                    </div>
+
+                    <div class="comparison-card rate-four">
+                        <span>INVESTMENT B · HIGHER VOLATILITY</span>
+                        <strong id="final-b">€0</strong>
+                        <p id="drawdown-b">Biggest fall from a peak: 0%</p>
+                    </div>
+                </div>
+
+                <p class="journey-summary" id="journey-summary"></p>
+
+                <div class="chart-legend">
+                    <span><i class="legend-seven"></i> Investment A</span>
+                    <span><i class="legend-four"></i> Investment B</span>
+                    <span><i class="legend-start"></i> Initial investment</span>
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="risk-chart"
+                        aria-label="Chart comparing the simulated paths of two investments"></canvas>
+                    <div class="chart-tooltip" id="chart-tooltip" hidden></div>
+                </div>
+
+                <p class="chart-note">
+                    Simplified hypothetical simulation, not a forecast and not
+                    historical market data. Each month, both investments get
+                    the same small upward drift plus a random up or down move;
+                    the volatility setting controls the size of those moves.
+                    The drift is set so that a typical outcome grows by 5% a
+                    year for both. Any single run can end above or below that.
+                    The same simulation number always produces the same result.
+                    Excludes fees, taxes and inflation.
+                </p>
+            </section>
+
+            <h2>What the experiment shows</h2>
+
+            <p>
+                Try a few simulation numbers. Sometimes the more volatile
+                Investment B ends far ahead. Sometimes it ends behind.
+                Its range of possible outcomes is simply much wider, and
+                its path is much bumpier.
+            </p>
+
+            <p>
+                Look at the biggest fall from a peak. A drop of 40% or 50%
+                on the way to a good final result is hard to live through.
+                Many investors sell in the middle of a fall like that, and
+                turn a temporary decline into a permanent loss.
+            </p>
+
+            <div class="lesson-highlight">
+                Two investments can promise the same average return
+                and still take you on very different journeys.
+            </div>
+
+            <p>
+                Remember that volatility is only one part of risk. This
+                experiment leaves out things like a company failing, fees,
+                or needing your money at the wrong time.
+            </p>
+
+            <h2>Three key takeaways</h2>
+
+            <ul>
+                <li>Higher potential returns generally come with greater uncertainty about the outcome.</li>
+                <li>Volatility and permanent loss are not the same thing. A fall only becomes a loss if you sell low or the investment never recovers.</li>
+                <li>The path an investment takes can matter as much as its final value, because you have to live through every step of it.</li>
+            </ul>
+
+            <p class="disclaimer">
+                All examples are hypothetical illustrations, not forecasts
+                or investment advice.
+            </p>
+
+            <h2>Want to learn more?</h2>
+
+            <ul>
+                <li>
+                    <a href="https://www.investor.gov/introduction-investing/investing-basics/what-risk"
+                       target="_blank" rel="noopener">What is risk?</a>,
+                    a short, beginner-friendly explainer from the US Securities and Exchange Commission (SEC).
+                </li>
+                <li>
+                    <a href="https://www.finra.org/investors/investing/investing-basics/risk"
+                       target="_blank" rel="noopener">Understanding investment risk</a>,
+                    a guide from FINRA, a US investor protection body, to the different kinds of risk investors face, beyond just price swings.
+                </li>
+            </ul>
+
+        </article>
+
+    </main>
+
+    <footer>
+        <p>The Investment Club · Learn together, grow together.</p>
+    </footer>
+
+<script src="week-03-risk-simulation.js"></script>
+<script src="week-03-investment-risk.js"></script>
+</body>
+</html>
